@@ -1,0 +1,19 @@
+HI100 FFFFFF ADDRES START 100  
+100 00000        . tests pc forward addressing
+100 00000        . tests base addressing
+100 00000        . tests pc backward addressing
+100 06B9028 NOW +LDB BEGIN,X ['load', 'base', 'register']
+104 FFFFFF XXX BASE BEGIN,X ['tell', 'assembler']
+104 0772F00   LDT =C'ABC'  
+107 0772EFC   LDT =X'2545'  
+10A 022021 YYY LDA @BE ['A', '<-', '(m..m+2)']
+10D FFFFFF EN RESW 4  
+119 000038 BE WORD 56  
+11C FFFFFF BEGIN RESW 1  
+11F FFFFFF JUNK RESW 1000  
+CD7 FFFFFF THERE RESW 1  
+CDA 032000 ZZZ LDA JUNK  
+CDD FFFFFF   LTORG    
+CE0 0009F1   BYTE =C'ABC'  
+CE2 0009F1   BYTE =X'2545'  
+CE2 0F2FF7 MMM STA THERE  
